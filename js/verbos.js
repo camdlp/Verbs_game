@@ -153,6 +153,8 @@ var verbosJuego;
 //Verbos a completar en el juego faltaUna
 var objetivoVerbos; 
 
+
+
 //Contador de aciertos
 var aciertos;
 
