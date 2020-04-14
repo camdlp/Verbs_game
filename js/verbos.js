@@ -150,9 +150,14 @@ var verbos = [
 //Array de verbos para el juego falta Una
 var verbosJuego;
 
+//Array de palabras para el juego falta texto
+var palabrasJuego;
+
 //Verbos a completar en el juego faltaUna
 var objetivoVerbos; 
 
+//Palabras a completar en el juego de falta texto
+var objetivoPalabras; 
 
 
 //Contador de aciertos
@@ -164,6 +169,11 @@ $(document).ready(function () {
 });
 
 $('#play').click(function () {
+    $('#contenido').load('juego.html');
+
+});
+
+$('#play-top-bar').click(function () {
     $('#contenido').load('juego.html');
 
 });
@@ -182,19 +192,19 @@ function faltaUna() {
     }
 }
 
+function faltaTexto() {
+    palabrasJuego = JSON.parse(JSON.stringify(props));
+    for (var i = 0; i < props.length; i++) {
+   
+        palabrasJuego[i][0] = "";
+    }
+}
+
 /*
  * ********************* FALTA UNA NIVELES *********************
  * ********************* FALTA UNA NIVELES *********************
  * ********************* FALTA UNA NIVELES *********************
  */
-
-
-
-
-
-
-
-
  
 $('#faltaUnaEasy').click(function () {
     //Esconde la carta de escondeUna.
@@ -205,13 +215,15 @@ $('#faltaUnaEasy').click(function () {
     faltaUna();
     //Genera la tabla del juego
     $('#contenidoJuego').text(generaTabla('verbosJuego', 'easy'));
-    console.log("hola");
+   
     $('.carousel').carousel();
     $('.carousel.carousel-slider').carousel({
         fullWidth: true
     });
 
 });
+
+
 
 $('#faltaUnaMedium').click(function () {
     //Esconde la carta de escondeUna.
@@ -222,7 +234,7 @@ $('#faltaUnaMedium').click(function () {
     faltaUna();
     //Genera la tabla del juego
     $('#contenidoJuego').text(generaTabla('verbosJuego', 'medium'));
-    console.log("hola");
+  
     $('.carousel').carousel();
     $('.carousel.carousel-slider').carousel({
         fullWidth: true
@@ -251,6 +263,75 @@ $('#faltaUnaHard').click(function () {
  * ********************* FALTA UNA NIVELES *********************
  * ********************* FALTA UNA NIVELES *********************
  */
+
+/*
+ * ********************* FALTA Texto NIVELES *********************
+ * ********************* FALTA Texto NIVELES *********************
+ * ********************* FALTA Texto NIVELES *********************
+ */
+
+$('#faltaTextoEasy').click(function () {
+    //Esconde la carta de escondeUna.
+    esconde('faltaTextoCard');
+    //Quito el carrusel si lo hubiera
+    $('#carrusel').remove();
+    //Quita una de las palabras de cada fila
+    faltaTexto();
+    //Genera la tabla del juego
+    $('#contenidoJuego').text(generaTablaJuego2('Juego', 'easy'));
+  
+    $('.carousel').carousel();
+
+    $('.carousel.carousel-slider').carousel({
+        fullWidth: true
+    });
+
+});
+$('#faltaTextoMedium').click(function () {
+    //Esconde la carta de escondeUna.
+    esconde('faltaTextoCard');
+    //Quito el carrusel si lo hubiera
+    $('#carrusel').remove();
+    //Quita una de las palabras de cada fila
+    faltaTexto();
+    //Genera la tabla del juego
+    $('#contenidoJuego').text(generaTablaJuego2('Juego', 'medium'));
+  
+    $('.carousel').carousel();
+
+    $('.carousel.carousel-slider').carousel({
+        fullWidth: true
+    });
+
+});
+$('#faltaTextoHard').click(function () {
+    //Esconde la carta de escondeUna.
+    esconde('faltaTextoCard');
+    //Quito el carrusel si lo hubiera
+    $('#carrusel').remove();
+    //Quita una de las palabras de cada fila
+    faltaTexto();
+    //Genera la tabla del juego
+    $('#contenidoJuego').text(generaTablaJuego2('Juego', 'hard'));
+  
+    $('.carousel').carousel();
+
+    $('.carousel.carousel-slider').carousel({
+        fullWidth: true
+    });
+
+});
+
+
+/*
+ * ********************* FALTA Texto NIVELES *********************
+ * ********************* FALTA Texto NIVELES *********************
+ * ********************* FALTA Texto NIVELES *********************
+ */
+
+
+
+
 $('#review').click(function () {
     $('#carrusel').remove();
     $('#contenidoJuego').text(generaTabla());
@@ -315,6 +396,90 @@ function generaTabla(array, level) {
         }
     }
 }
+
+
+function generaTablaJuego2(array, level) {
+    objetivoPalabras = props.length;
+    if (array === 'Juego') {
+        aciertos = 0;
+        objetivoPalabras = 0;
+        array = palabrasJuego;
+        if(level === 'easy'){
+            objetivoPalabras = 9;
+        }else if(level === 'medium'){
+            objetivoPalabras = 19;
+        }else objetivoPalabras = 29;
+    } else {
+        //Correct
+        array = props;
+        esconde('numPalabra');
+        esconde('buscaProp');
+    }
+
+
+    //Genera la estructura de la tabla
+    $('#contenidoJuego').append('<div id="carrusel" class="carousel carousel-slider">\n\
+                \n\
+                ');
+    for (var i = 0; i < objetivoPalabras; i++) {
+        var palabra = "";
+        debugger;
+        if(array[i][0]!= ""){
+            palabra = array[i][0];
+        }
+        $('#carrusel').append('<div id="itemCarrusel' + i + '" class="carousel-item blue center-align white-text" style="border-radius: 3px;"><h4>Number ' + (i + 1) + ' / ' + objetivoPalabras + '</h4>');
+       
+           
+                $('#itemCarrusel' + i + '').append($('<div class="row"><div class="input-field col s8 white" style="border: 1px solid #2196f3; border-radius: 3px;">\n\
+\n\
+<input id="hidden' + i.toString() +'0" class="validate col s12 blue-text" value="'+palabra+'" style="border-bottom: 1px solid #2196f3; text-transform:uppercase;text-align: center;"></input>\n\
+</div><div class="input-field col s4" style="border: 1px solid #2196f3; border-radius: 3px;">\n\
+                <h4 class="center-align">' + array[i][1] + '</h4>\n\
+                </div></div>'));
+
+        if (array === palabrasJuego) {
+            $('#itemCarrusel' + i + '').append('<a id="' + i + '" class="btn white blue-text large waves-effect checkPalabra">Check</a>');
+        }
+    }
+}
+
+
+//Función para checkear que el verbo es correcto.
+$('#contenidoJuego').on('click', '.checkPalabra', function () {
+
+    for (var i = 0; i < verbos.length; i++) {
+
+        if (palabrasJuego[this.id][i] === "") {
+
+            if ($('#hidden' + this.id + i).val().toString().toLowerCase() === props[this.id][i].toString().toLowerCase()) {
+
+                $('#hidden' + this.id + i).addClass('white-text');
+                $('#hidden' + this.id + i).val($('#hidden' + this.id + i).val() + ' -> CORRECT!');
+                $('#hidden' + this.id + i).addClass('green');
+                //Se pone de sólo lectura
+                $('#hidden' + this.id + i).attr('readonly', 'readonly');      
+                //Aumento los aciertos y compruebo si he ganado
+                aciertos++;
+                if(aciertos === objetivoPalabras){
+                    hasGanado();                    
+                }
+                setTimeout(function () {
+                    $('.carousel').carousel('next');
+
+                }, 1000);
+
+
+            } else {
+                $('#hidden' + this.id + i).val('INCORRECT, TRY AGAIN');
+                
+
+                console.log("Error");
+            }
+
+        }
+    }
+});
+
 
 
 //Función para checkear que el verbo es correcto.
@@ -395,6 +560,25 @@ $(document).on('click', '#buscaVerbo', function () {
 
 });
 
+$(document).on('click', '#buscaProp', function () {
+
+    var busca = $('#numPalabra').val().toString().toLowerCase();
+    debugger;
+
+    var elemento;
+    for (var i = 0; i < props.length; i++) {
+        if (props[i].indexOf(busca) !== -1) {
+            elemento = i;
+            break;
+        }
+    }
+
+    $('.carousel').carousel('set', elemento);
+   
+
+});
+
+
 //Función que controla el modal al pulsar review the verbs
 //Lo mostrará sólo si estamos en medio del juego y pulsamos avisando que perderemos 
 //el progreso del juego actual.
@@ -418,6 +602,29 @@ $('a[href="#modal1"]').on('click', function (ev) {
     } else {
         //Si existe el carrusel de juego, abro el modal y luego cargo el modal de juego encima
         $('#modal1').modal('open');
+
+    }
+});
+$('a[href="#modal2"]').on('click', function (ev) {
+
+    if ($('.checkPalabra').length === 0) {
+        //Si no existe el carrusel de juego, abro el carrusel de verbos sin mostrar el modal
+        ev.preventDefault();
+        if ($('#carrusel').length !== 0) {
+            $('#carrusel').remove();
+            esconde('numPalara');
+            esconde('buscaProp');
+        } else {
+            $('#carrusel').remove();
+            $('#contenidoJuego').text(generaTablaJuego2());
+            $('.carousel').carousel();
+            $('.carousel.carousel-slider').carousel({
+                fullWidth: true
+            });
+        }
+    } else {
+        //Si existe el carrusel de juego, abro el modal y luego cargo el modal de juego encima
+        $('#modal2').modal('open');
 
     }
 });
@@ -464,7 +671,42 @@ $('#win').click(function () {
 //}
 
 
+var options = [
+    "in","on","at"
+]
 
+var props = [
+["in","cash"],
+["in","the street"],
+["in","French"],
+["on","the radio"],
+["at","once"],
+["in","total"],
+["on","earth"],
+["on","the floor"],
+["in","Total"],
+["at","the age of 21"],
+["on","Monday"],
+["at","sea"],
+["in","public"],
+["on","horseback"],
+["in","the country"],
+["on","the phone"],
+["in","the evening"],
+["on","the internet"],
+["on","the wall"],
+["at","easter"],
+["on","Good Friday"],
+["on","the beach"],
+["at","work"],
+["in","groups of five"],
+["in","the afternoon"],
+["in","a hurry"],
+["at","Sea"],
+["on","foot"],
+["on","the River Thames"],
+["on","the right"],
+]
 
 
 

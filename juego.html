@@ -8,9 +8,11 @@
     <body>
         <br>
         <div>
-            <a class="waves-effect waves-light blue btn" href="#modal1">Review the verbs</a><br><br>
+            <a class="waves-effect waves-light blue btn" href="#modal1">Review the verbs</a><a class="waves-effect waves-light blue btn" href="#modal2">Review the propositions</a><br><br>
             <button id="buscaVerbo" class="btn blue white-text" style="display: none;">Busca</button>
+            <button id="buscaProp" class="btn blue white-text" style="display: none;">Busca</button>
             <input id="numVerbo" type="text" style="display: none;">
+            <input id="numPalabra" type="text" style="display: none;">
             <br><br>
             
             <div id="contenidoJuego" style="position: relative">
@@ -21,7 +23,7 @@
 
         <!-- -->
         <div class="row">
-            <div class="card col-12 col-md-6" id="faltaUnaCard">
+            <div class="card col s12" id="faltaUnaCard">
                 <div class="card-image waves-effect waves-block waves-light">
                     <img class="activator" src="img/word.png">
                 </div>
@@ -46,14 +48,28 @@
             </div>
 
 
-            <div class="card col-12 col-md-6" id="faltaTexto">
+            <div class="card col s12" id="faltaTextoCard">
                 <div class="card-image waves-effect waves-block waves-light">
                     <img class="activator" src="img/word.png">
                 </div>
                 <div class="card-content">
                     <span class="card-title activator grey-text text-darken-4">Rellenar frase<i class="material-icons right small">play_circle_outline</i></span>
                 </div>
-                
+                <div class="card-reveal row">
+                    <div class="row">
+                        <span class="card-title grey-text text-darken-4">Select Level</span> <br>
+                    </div>
+                    <div class="row">
+                        <a class="btn-large waves-effect waves-light blue col s6 offset-s3" id="faltaTextoEasy">Easy</a>  
+                    </div>
+                    <div class="row">
+                        <a class="btn-large waves-effect waves-light blue col s6 offset-s3" id="faltaTextoMedium">Medium</a>  
+                    </div>
+                    <div class="row">
+                        <a class="btn-large waves-effect waves-light blue col s6 offset-s3" id="faltaTextoHard">High</a>  
+                    </div>
+
+                </div>
             </div>
 
         </div>
@@ -66,6 +82,16 @@
         <script src="js/verbos.js" type="text/javascript"></script>
 
         <div id="modal1" class="modal">
+            <div class="modal-content">
+                <h4>Are you sure?</h4>
+                <p>By going ahead you will lose your progress in the current game</p>
+            </div>
+            <div class="modal-footer">                
+                <a class="modal-close waves-effect waves-green btn-flat">Decline</a>
+                <a id="review" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+            </div>
+        </div> 
+        <div id="modal2" class="modal">
             <div class="modal-content">
                 <h4>Are you sure?</h4>
                 <p>By going ahead you will lose your progress in the current game</p>
