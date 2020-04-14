@@ -188,6 +188,14 @@ function faltaUna() {
  * ********************* FALTA UNA NIVELES *********************
  */
 
+
+
+
+
+
+
+
+ 
 $('#faltaUnaEasy').click(function () {
     //Esconde la carta de escondeUna.
     esconde('faltaUnaCard');
