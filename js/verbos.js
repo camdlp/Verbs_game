@@ -424,24 +424,36 @@ function generaTablaJuego2(array, level) {
                 \n\
                 ');
     for (var i = 0; i < objetivoPalabras; i++) {
+        $('#carrusel').append('<div id="itemCarrusel' + i + '" class="carousel-item blue center-align white-text" style="border-radius: 3px;"><h4>Number ' + (i + 1) + ' / ' + objetivoPalabras + '</h4>');
+
         var palabra = "";
         if (array[i][0] != "") {
             palabra = array[i][0];
+            $('#itemCarrusel' + i + '').append($('<div class="row"><div class="input-field col s6 " style="border: 1px solid #2196f3; border-radius: 3px;">\n\
+            <h4 class="center-align">'+ palabra+ '</h4>\n\
+            </div><div class="input-field col s6" style="border: 1px solid #2196f3; border-radius: 3px;">\n\
+                            <h4 class="center-align">' + array[i][1] + '</h4>\n\
+                            </div>\n\
+                            <div class="input-field col s12" style="border: 1px solid #2196f3; border-radius: 3px;">\n\
+                            <h4 class="text"></h4>\n\
+                            </div>\n\
+                            </div>'));
+        }else{
+            $('#itemCarrusel' + i + '').append($('<div class="row"><div class="input-field col s8 white" style="border: 1px solid #2196f3; border-radius: 3px;">\n\
+            \n\
+            <select id="hidden' + i.toString() + '0" ><option value="" disabled selected>Choose your option</option><option value="IN">IN</option><option value="ON">ON</option><option value="AT">AT</option>\n\
+            </select>\n\
+            </div><div class="input-field col s4" style="border: 1px solid #2196f3; border-radius: 3px;">\n\
+                            <h4 class="center-align">' + array[i][1] + '</h4>\n\
+                            </div>\n\
+                            <div class="input-field col s12" style="border: 1px solid #2196f3; border-radius: 3px;">\n\
+                            <h4 class="text"></h4>\n\
+                            </div>\n\
+                            </div>'));
         }
-        $('#carrusel').append('<div id="itemCarrusel' + i + '" class="carousel-item blue center-align white-text" style="border-radius: 3px;"><h4>Number ' + (i + 1) + ' / ' + objetivoPalabras + '</h4>');
+       
 
-
-        $('#itemCarrusel' + i + '').append($('<div class="row"><div class="input-field col s8 white" style="border: 1px solid #2196f3; border-radius: 3px;">\n\
-\n\
-<select id="hidden' + i.toString() + '0" ><option value="" disabled selected>Choose your option</option><option value="IN">IN</option><option value="ON">ON</option><option value="AT">AT</option>\n\
-</select>\n\
-</div><div class="input-field col s4" style="border: 1px solid #2196f3; border-radius: 3px;">\n\
-                <h4 class="center-align">' + array[i][1] + '</h4>\n\
-                </div>\n\
-                <div class="input-field col s12" style="border: 1px solid #2196f3; border-radius: 3px;">\n\
-                <h4 class="text"></h4>\n\
-                </div>\n\
-                </div>'));
+       
 
         if (array === palabrasJuego) {
             $('#itemCarrusel' + i + '').append('<a id="' + i + '" class="btn white blue-text large waves-effect checkPalabra">Check</a>');
