@@ -154,10 +154,10 @@ var verbosJuego;
 var palabrasJuego;
 
 //Verbos a completar en el juego faltaUna
-var objetivoVerbos; 
+var objetivoVerbos;
 
 //Palabras a completar en el juego de falta texto
-var objetivoPalabras; 
+var objetivoPalabras;
 
 
 //Contador de aciertos
@@ -166,6 +166,7 @@ var aciertos;
 //Función para los modales
 $(document).ready(function () {
     $('.modal').modal();
+
 });
 
 $('#play').click(function () {
@@ -195,7 +196,7 @@ function faltaUna() {
 function faltaTexto() {
     palabrasJuego = JSON.parse(JSON.stringify(props));
     for (var i = 0; i < props.length; i++) {
-   
+
         palabrasJuego[i][0] = "";
     }
 }
@@ -205,7 +206,7 @@ function faltaTexto() {
  * ********************* FALTA UNA NIVELES *********************
  * ********************* FALTA UNA NIVELES *********************
  */
- 
+
 $('#faltaUnaEasy').click(function () {
     //Esconde la carta de escondeUna.
     esconde('faltaUnaCard');
@@ -215,7 +216,7 @@ $('#faltaUnaEasy').click(function () {
     faltaUna();
     //Genera la tabla del juego
     $('#contenidoJuego').text(generaTabla('verbosJuego', 'easy'));
-   
+
     $('.carousel').carousel();
     $('.carousel.carousel-slider').carousel({
         fullWidth: true
@@ -234,7 +235,7 @@ $('#faltaUnaMedium').click(function () {
     faltaUna();
     //Genera la tabla del juego
     $('#contenidoJuego').text(generaTabla('verbosJuego', 'medium'));
-  
+
     $('.carousel').carousel();
     $('.carousel.carousel-slider').carousel({
         fullWidth: true
@@ -279,7 +280,7 @@ $('#faltaTextoEasy').click(function () {
     faltaTexto();
     //Genera la tabla del juego
     $('#contenidoJuego').text(generaTablaJuego2('Juego', 'easy'));
-  
+
     $('.carousel').carousel();
 
     $('.carousel.carousel-slider').carousel({
@@ -296,7 +297,7 @@ $('#faltaTextoMedium').click(function () {
     faltaTexto();
     //Genera la tabla del juego
     $('#contenidoJuego').text(generaTablaJuego2('Juego', 'medium'));
-  
+
     $('.carousel').carousel();
 
     $('.carousel.carousel-slider').carousel({
@@ -313,7 +314,7 @@ $('#faltaTextoHard').click(function () {
     faltaTexto();
     //Genera la tabla del juego
     $('#contenidoJuego').text(generaTablaJuego2('Juego', 'hard'));
-  
+
     $('.carousel').carousel();
 
     $('.carousel.carousel-slider').carousel({
@@ -361,11 +362,11 @@ function generaTabla(array, level) {
         aciertos = 0;
         objetivoVerbos = 0;
         array = verbosJuego;
-        if(level === 'easy'){
+        if (level === 'easy') {
             objetivoVerbos = 2;
-        }else if(level === 'medium'){
+        } else if (level === 'medium') {
             objetivoVerbos = 70;
-        }else objetivoVerbos = 146;
+        } else objetivoVerbos = 146;
     } else {
         array = verbos;
         esconde('numVerbo');
@@ -404,11 +405,11 @@ function generaTablaJuego2(array, level) {
         aciertos = 0;
         objetivoPalabras = 0;
         array = palabrasJuego;
-        if(level === 'easy'){
+        if (level === 'easy') {
             objetivoPalabras = 9;
-        }else if(level === 'medium'){
+        } else if (level === 'medium') {
             objetivoPalabras = 19;
-        }else objetivoPalabras = 29;
+        } else objetivoPalabras = 29;
     } else {
         //Correct
         array = props;
@@ -417,30 +418,36 @@ function generaTablaJuego2(array, level) {
     }
 
 
+
     //Genera la estructura de la tabla
     $('#contenidoJuego').append('<div id="carrusel" class="carousel carousel-slider">\n\
                 \n\
                 ');
     for (var i = 0; i < objetivoPalabras; i++) {
         var palabra = "";
-        debugger;
-        if(array[i][0]!= ""){
+        if (array[i][0] != "") {
             palabra = array[i][0];
         }
         $('#carrusel').append('<div id="itemCarrusel' + i + '" class="carousel-item blue center-align white-text" style="border-radius: 3px;"><h4>Number ' + (i + 1) + ' / ' + objetivoPalabras + '</h4>');
-       
-           
-                $('#itemCarrusel' + i + '').append($('<div class="row"><div class="input-field col s8 white" style="border: 1px solid #2196f3; border-radius: 3px;">\n\
+
+
+        $('#itemCarrusel' + i + '').append($('<div class="row"><div class="input-field col s8 white" style="border: 1px solid #2196f3; border-radius: 3px;">\n\
 \n\
-<input id="hidden' + i.toString() +'0" class="validate col s12 blue-text" value="'+palabra+'" style="border-bottom: 1px solid #2196f3; text-transform:uppercase;text-align: center;"></input>\n\
+<select id="hidden' + i.toString() + '0" ><option value="" disabled selected>Choose your option</option><option value="IN">IN</option><option value="ON">ON</option><option value="AT">AT</option>\n\
+</select>\n\
 </div><div class="input-field col s4" style="border: 1px solid #2196f3; border-radius: 3px;">\n\
                 <h4 class="center-align">' + array[i][1] + '</h4>\n\
-                </div></div>'));
+                </div>\n\
+                <div class="input-field col s12" style="border: 1px solid #2196f3; border-radius: 3px;">\n\
+                <h4 class="text"></h4>\n\
+                </div>\n\
+                </div>'));
 
         if (array === palabrasJuego) {
             $('#itemCarrusel' + i + '').append('<a id="' + i + '" class="btn white blue-text large waves-effect checkPalabra">Check</a>');
         }
     }
+    $('select').formSelect();
 }
 
 
@@ -452,16 +459,13 @@ $('#contenidoJuego').on('click', '.checkPalabra', function () {
         if (palabrasJuego[this.id][i] === "") {
 
             if ($('#hidden' + this.id + i).val().toString().toLowerCase() === props[this.id][i].toString().toLowerCase()) {
+                
+                $('#hidden' + this.id + i).closest(".carousel-item").find(".text").text("CORRECT!").parent().removeClass("red").addClass("green");
 
-                $('#hidden' + this.id + i).addClass('white-text');
-                $('#hidden' + this.id + i).val($('#hidden' + this.id + i).val() + ' -> CORRECT!');
-                $('#hidden' + this.id + i).addClass('green');
-                //Se pone de sólo lectura
-                $('#hidden' + this.id + i).attr('readonly', 'readonly');      
                 //Aumento los aciertos y compruebo si he ganado
                 aciertos++;
-                if(aciertos === objetivoPalabras){
-                    hasGanado();                    
+                if (aciertos === objetivoPalabras) {
+                    hasGanado();
                 }
                 setTimeout(function () {
                     $('.carousel').carousel('next');
@@ -470,10 +474,8 @@ $('#contenidoJuego').on('click', '.checkPalabra', function () {
 
 
             } else {
-                $('#hidden' + this.id + i).val('INCORRECT, TRY AGAIN');
-                
 
-                console.log("Error");
+                $('#hidden' + this.id + i).closest(".carousel-item").find(".text").text("INCORRECT, TRY AGAIN").parent().removeClass("green").addClass("red");
             }
 
         }
@@ -499,13 +501,13 @@ $('#contenidoJuego').on('click', '.checkVerbo', function () {
 
                 //Se pone de sólo lectura
                 $('#hidden' + this.id + i).attr('readonly', 'readonly');
-                
+
                 //Aumento los aciertos y compruebo si he ganado
                 aciertos++;
-                if(aciertos === objetivoVerbos){
-                    hasGanado();                    
+                if (aciertos === objetivoVerbos) {
+                    hasGanado();
                 }
-                
+
                 setTimeout(function () {
                     $('.carousel').carousel('next');
 
@@ -514,7 +516,7 @@ $('#contenidoJuego').on('click', '.checkVerbo', function () {
 
             } else {
                 $('#hidden' + this.id + i).val('INCORRECT, TRY AGAIN');
-                
+
 
                 console.log("Error");
             }
@@ -527,10 +529,10 @@ $('#contenidoJuego').on('click', '.checkVerbo', function () {
 //'INCORRECT, TRY AGAIN' y se ponga vacío
 $('#contenidoJuego').on('click', '.validate', function () {
     //Checkea que no sea un campo ya acertado
-    if(!document.getElementById(this.id).hasAttribute('readonly')){
+    if (!document.getElementById(this.id).hasAttribute('readonly')) {
         $('#' + this.id).val('');
     }
-    
+
 });
 
 //Método para añadir funcionalidades al carrusel
@@ -563,8 +565,6 @@ $(document).on('click', '#buscaVerbo', function () {
 $(document).on('click', '#buscaProp', function () {
 
     var busca = $('#numPalabra').val().toString().toLowerCase();
-    debugger;
-
     var elemento;
     for (var i = 0; i < props.length; i++) {
         if (props[i].indexOf(busca) !== -1) {
@@ -574,7 +574,7 @@ $(document).on('click', '#buscaProp', function () {
     }
 
     $('.carousel').carousel('set', elemento);
-   
+
 
 });
 
@@ -640,7 +640,7 @@ function esconde(prop) {
 }
 
 
-function hasGanado () {
+function hasGanado() {
     $('#modalGanado').modal('open');
 }
 
@@ -672,40 +672,40 @@ $('#win').click(function () {
 
 
 var options = [
-    "in","on","at"
+    "in", "on", "at"
 ]
 
 var props = [
-["in","cash"],
-["in","the street"],
-["in","French"],
-["on","the radio"],
-["at","once"],
-["in","total"],
-["on","earth"],
-["on","the floor"],
-["in","Total"],
-["at","the age of 21"],
-["on","Monday"],
-["at","sea"],
-["in","public"],
-["on","horseback"],
-["in","the country"],
-["on","the phone"],
-["in","the evening"],
-["on","the internet"],
-["on","the wall"],
-["at","easter"],
-["on","Good Friday"],
-["on","the beach"],
-["at","work"],
-["in","groups of five"],
-["in","the afternoon"],
-["in","a hurry"],
-["at","Sea"],
-["on","foot"],
-["on","the River Thames"],
-["on","the right"],
+    ["in", "cash"],
+    ["in", "the street"],
+    ["in", "French"],
+    ["on", "the radio"],
+    ["at", "once"],
+    ["in", "total"],
+    ["on", "earth"],
+    ["on", "the floor"],
+    ["in", "Total"],
+    ["at", "the age of 21"],
+    ["on", "Monday"],
+    ["at", "sea"],
+    ["in", "public"],
+    ["on", "horseback"],
+    ["in", "the country"],
+    ["on", "the phone"],
+    ["in", "the evening"],
+    ["on", "the internet"],
+    ["on", "the wall"],
+    ["at", "easter"],
+    ["on", "Good Friday"],
+    ["on", "the beach"],
+    ["at", "work"],
+    ["in", "groups of five"],
+    ["in", "the afternoon"],
+    ["in", "a hurry"],
+    ["at", "Sea"],
+    ["on", "foot"],
+    ["on", "the River Thames"],
+    ["on", "the right"],
 ]
 
 
