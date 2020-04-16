@@ -1,4 +1,4 @@
-.btn {
+/* .btn {
   display: inline-block;
   font-weight: 400;
   text-align: center;
@@ -16,4 +16,68 @@
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   white-space: normal;
   word-wrap: break-word;
+} */
+
+#contenido{
+  width: 100vw;
+  margin: 0 auto;
+  padding: 5vw;
+
 }
+
+/* Botón interactivo de play */
+.container-play {
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
+}
+
+.circle {
+  stroke: #2196F3;
+  stroke-dasharray: 650;
+  stroke-dashoffset: 650;
+  -webkit-transition: all 0.5s ease-in-out;
+  opacity: 0.3;
+}
+
+.playBut {
+  /*  border: 1px solid red;*/
+  display: inline-block;
+  -webkit-transition: all 0.5s ease;
+}
+.playBut .triangle {
+  -webkit-transition: all 0.7s ease-in-out;
+  stroke-dasharray: 240;
+  stroke-dashoffset: 480;
+  stroke: #000;
+  transform: translateY(0);
+}
+.playBut:hover .triangle {
+  stroke-dashoffset: 0;
+  opacity: 1;
+  stroke: #2196F3;
+  animation: nudge 0.7s ease-in-out;
+}
+@keyframes nudge {
+  0% {
+    transform: translateX(0);
+  }
+  30% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  70% {
+    transform: translateX(-2px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+.playBut:hover .circle {
+  stroke-dashoffset: 0;
+  opacity: 1;
+}
+/* FIN Botón interactivo de play */
+

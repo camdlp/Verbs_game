@@ -386,7 +386,7 @@ function generaTabla(array, level) {
             if (array[i][j] === "") {
                 $('#itemCarrusel' + i + '').append($('<div class="input-field col s12 white" style="border: 1px solid #2196f3; border-radius: 3px;">\n\
 \n\
-<input id="hidden' + i.toString() + j.toString() + '" class="validate col s6 blue-text" style="border-bottom: 1px solid #2196f3; text-transform:uppercase;text-align: center;"></input>\n\
+<input id="hidden' + i.toString() + j.toString() + '" class="validate col s12 blue-text" style="border-bottom: 1px solid #2196f3; text-transform:uppercase;text-align: center;"></input>\n\
 </div>'));
             } else
                 $('#itemCarrusel' + i + '').append($('<h4 class="center-align">' + array[i][j] + '</h4>'));
@@ -429,9 +429,9 @@ function generaTablaJuego2(array, level) {
         var palabra = "";
         if (array[i][0] != "") {
             palabra = array[i][0];
-            $('#itemCarrusel' + i + '').append($('<div class="row"><div class="input-field col s6 " style="border: 1px solid #2196f3; border-radius: 3px;">\n\
+            $('#itemCarrusel' + i + '').append($('<div class="row"><div class="input-field col s12 " style="border: 1px solid #2196f3; border-radius: 3px;">\n\
             <h4 class="center-align">'+ palabra+ '</h4>\n\
-            </div><div class="input-field col s6" style="border: 1px solid #2196f3; border-radius: 3px;">\n\
+            </div><div class="input-field col s12" style="border: 1px solid #2196f3; border-radius: 3px;">\n\
                             <h4 class="center-align">' + array[i][1] + '</h4>\n\
                             </div>\n\
                             <div class="input-field col s12" style="border: 1px solid #2196f3; border-radius: 3px;">\n\
@@ -624,7 +624,7 @@ $('a[href="#modal2"]').on('click', function (ev) {
         ev.preventDefault();
         if ($('#carrusel').length !== 0) {
             $('#carrusel').remove();
-            esconde('numPalara');
+            esconde('numPalabra');
             esconde('buscaProp');
         } else {
             $('#carrusel').remove();

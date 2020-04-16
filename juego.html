@@ -1,163 +1,175 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8">
 
-        <title>Let's play</title>
-    </head>
-    <body>
+<head>
+    <link rel="icon" type="image/png" href="img/icon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="css/materialize.min.css" rel="stylesheet" type="text/css" />
+    <link href="css/verbos.css" rel="stylesheet" type="text/css" />
+
+    <title>Magic English for Noobs®</title>
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <nav>
+        <div class="nav-wrapper blue darken-1">
+            <a href="index.html" class="brand-logo" style="margin-left: 1%;">Magic English for Noobs</a>
+            <a href="#!" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="juego.html">Games</a></li>
+                <li><a href="index.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <ul class="sidenav" id="mobile-demo">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="juego.html">Games</a></li>
+        <li><a href="index.html">Contact</a></li>
+    </ul>
+
+    <!-- NAVBAR -->
+
+    <!-- CONTENIDO -->
+    <div id="contenido" class="container">
         <br>
-        <div>
-            <a class="waves-effect waves-light blue btn" href="#modal1">Review the verbs</a><a class="waves-effect waves-light blue btn" href="#modal2">Review the propositions</a><br><br>
+        <div class="row center" id="review-container">
+            <a class="waves-effect waves-light blue btn col m4 offset-m1 s12" href="#modal1">Review the verbs</a>
+            <a class="waves-effect waves-light blue btn col m4 offset-m2 s12" href="#modal2">Review the
+                propositions</a><br><br>
             <button id="buscaVerbo" class="btn blue white-text" style="display: none;">Busca</button>
             <button id="buscaProp" class="btn blue white-text" style="display: none;">Busca</button>
             <input id="numVerbo" type="text" style="display: none;">
             <input id="numPalabra" type="text" style="display: none;">
             <br><br>
-            
+
             <div id="contenidoJuego" style="position: relative">
-                
+
 
             </div>
         </div>
 
-        
-        <!-- -->
-        <div class="row">
-            <div class="card col s12" id="faltaUnaCard">
+
+        <!-- Games Cards -->
+        <div class="games">
+            <div class="card medium" id="faltaUnaCard">
                 <div class="card-image waves-effect waves-block waves-light">
                     <img class="activator" src="img/word.png">
                 </div>
 
 
-               
+
                 <div class="card-content">
-                    <span class="card-title activator grey-text text-darken-4">Falta Una<i class="material-icons right small">play_circle_outline</i></span>
-                    <span class="card-title grey-text text-darken-4">Escribe la conjugación que falta del verbo o su significado</span>
+                    <span class="card-title activator grey-text text-darken-4">Falta Una<i
+                            class="material-icons right small">play_circle_outline</i></span>
+                    <span class="card-title grey-text text-darken-4">Escribe la conjugación que falta del verbo o su
+                        significado</span>
                 </div>
-                
-                <div class="card-reveal row">
+
+                <div class="card-reveal">
                     <div class="row">
                         <span class="card-title grey-text text-darken-4">Select Level</span> <br>
                     </div>
                     <div class="row">
-                        <a class="btn-large waves-effect waves-light blue col s6 offset-s3" id="faltaUnaEasy">Easy</a>  
+                        <a class="btn-large waves-effect waves-light blue col s6 offset-s3" id="faltaUnaEasy">Easy</a>
                     </div>
                     <div class="row">
-                        <a class="btn-large waves-effect waves-light blue col s6 offset-s3" id="faltaUnaMedium">Medium</a>  
+                        <a class="btn-large waves-effect waves-light blue col s6 offset-s3"
+                            id="faltaUnaMedium">Medium</a>
                     </div>
                     <div class="row">
-                        <a class="btn-large waves-effect waves-light blue col s6 offset-s3" id="faltaUnaHard">High</a>  
+                        <a class="btn-large waves-effect waves-light blue col s6 offset-s3" id="faltaUnaHard">High</a>
                     </div>
-                </div>
-                </div>
-            </div>
-
-
-            <div class="card col s12" id="faltaTextoCard">
-                <div class="card-image waves-effect waves-block waves-light">
-                    <img class="activator" src="img/word.png">
-                </div>
-                <div class="card-content">
-                    <span class="card-title activator grey-text text-darken-4">Proposiciones<i class="material-icons right small">play_circle_outline</i></span>
-                    <span class="card-title grey-text text-darken-4">Escribe la proposición correcta (in/on/at)</span>
-                </div>
-                <div class="card-reveal row">
-                    <div class="row">
-                        <span class="card-title grey-text text-darken-4">Select Level</span> <br>
-                    </div>
-                    <div class="row">
-                        <a class="btn-large waves-effect waves-light blue col s6 offset-s3" id="faltaTextoEasy">Easy</a>  
-                    </div>
-                    <div class="row">
-                        <a class="btn-large waves-effect waves-light blue col s6 offset-s3" id="faltaTextoMedium">Medium</a>  
-                    </div>
-                    <div class="row">
-                        <a class="btn-large waves-effect waves-light blue col s6 offset-s3" id="faltaTextoHard">High</a>  
-                    </div>
-
                 </div>
             </div>
-
         </div>
 
 
-        <!-- Scripts -->
-        <script src="js/jquery-3.3.1.min.js" type="text/javascript"></script>        
-        <script src="js/materialize.js" type="text/javascript"></script>        
-        <script src="js/init.js" type="text/javascript"></script>
-        <script src="js/verbos.js" type="text/javascript"></script>
+        <div class="card medium" id="faltaTextoCard">
+            <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator" src="img/word.png">
+            </div>
+            <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4">Proposiciones<i
+                        class="material-icons right small">play_circle_outline</i></span>
+                <span class="card-title grey-text text-darken-4">Escribe la proposición correcta (in/on/at)</span>
+            </div>
+            <div class="card-reveal">
+                <div class="row">
+                    <span class="card-title grey-text text-darken-4">Select Level</span> <br>
+                </div>
+                <div class="row">
+                    <a class="btn-large waves-effect waves-light blue col s6 offset-s3" id="faltaTextoEasy">Easy</a>
+                </div>
+                <div class="row">
+                    <a class="btn-large waves-effect waves-light blue col s6 offset-s3" id="faltaTextoMedium">Medium</a>
+                </div>
+                <div class="row">
+                    <a class="btn-large waves-effect waves-light blue col s6 offset-s3" id="faltaTextoHard">High</a>
+                </div>
 
-        <div id="modal1" class="modal">
-            <div class="modal-content">
-                <h4>Are you sure?</h4>
-                <p>By going ahead you will lose your progress in the current game</p>
-            </div>
-            <div class="modal-footer">                
-                <a class="modal-close waves-effect waves-green btn-flat">Decline</a>
-                <a id="review" class="modal-close waves-effect waves-green btn-flat">Agree</a>
-            </div>
-        </div> 
-        <div id="modal2" class="modal">
-            <div class="modal-content">
-                <h4>Are you sure?</h4>
-                <p>By going ahead you will lose your progress in the current game</p>
-            </div>
-            <div class="modal-footer">                
-                <a class="modal-close waves-effect waves-green btn-flat">Decline</a>
-                <a id="review" class="modal-close waves-effect waves-green btn-flat">Agree</a>
             </div>
         </div>
-        
-        <div id="modalGanado" class="modal">
-            <div class="modal-content">
-                <h4>You won!!</h4>
-                <p>Do you want to tell anyone?</p>
-            </div>
-            <div class="modal-footer">                
-                <a class="modal-close waves-effect waves-green btn-flat">Decline</a>
-                <a id="win" class="modal-close waves-effect waves-green btn-flat">Agree</a>
-            </div>
-        </div>
+    </div>
 
-    </body>
+    </div>
+    <!-- CONTENIDO -->
+
+
+
+    <!--<footer class="page-footer blue darken-1" style="position: fixed;left: 0;bottom: 0;width: 100%;">            
+            <div class="footer-copyright">
+                <div class="container">
+                    LearnPlaying®
+                    <a class="grey-text text-lighten-4 right" href="#!">© 2018 Madrid</a>
+                </div>
+            </div>
+        </footer>-->
+
+
+    <!-- Scripts -->
+    <script src="js/jquery-3.3.1.min.js" type="text/javascript"></script>
+    <script src="js/materialize.js" type="text/javascript"></script>
+    <script src="js/verbos.js" type="text/javascript"></script>
+    <script src="js/init.js" type="text/javascript"></script>
+
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <h4>Are you sure?</h4>
+            <p>By going ahead you will lose your progress in the current game</p>
+        </div>
+        <div class="modal-footer">
+            <a class="modal-close waves-effect waves-green btn-flat">Decline</a>
+            <a id="review" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+        </div>
+    </div>
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+            <h4>Are you sure?</h4>
+            <p>By going ahead you will lose your progress in the current game</p>
+        </div>
+        <div class="modal-footer">
+            <a class="modal-close waves-effect waves-green btn-flat">Decline</a>
+            <a id="review" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+        </div>
+    </div>
+
+    <div id="modalGanado" class="modal">
+        <div class="modal-content">
+            <h4>You won!!</h4>
+            <p>Do you want to tell anyone?</p>
+        </div>
+        <div class="modal-footer">
+            <a class="modal-close waves-effect waves-green btn-flat">Decline</a>
+            <a id="win" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+        </div>
+    </div>
+
+</body>
 
 
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
