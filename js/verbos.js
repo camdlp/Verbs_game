@@ -439,11 +439,11 @@ function generaTablaJuego2(array, level) {
                             </div>\n\
                             </div>'));
         }else{
-            $('#itemCarrusel' + i + '').append($('<div class="row"><div class="input-field col s8 white" style="border: 1px solid #2196f3; border-radius: 3px;">\n\
+            $('#itemCarrusel' + i + '').append($('<div class="row"><div class="input-field col s8 m4 offset-m2 offset-s2 white" style="border: 1px solid #2196f3; border-radius: 3px;">\n\
             \n\
             <select id="hidden' + i.toString() + '0" ><option value="" disabled selected>Choose your option</option><option value="IN">IN</option><option value="ON">ON</option><option value="AT">AT</option>\n\
             </select>\n\
-            </div><div class="input-field col s4" style="border: 1px solid #2196f3; border-radius: 3px;">\n\
+            </div><div class="input-field col s12 m4 center" style="border: 1px solid #2196f3; border-radius: 3px;">\n\
                             <h4 class="center-align">' + array[i][1] + '</h4>\n\
                             </div>\n\
                             <div class="input-field col s12" style="border: 1px solid #2196f3; border-radius: 3px;">\n\
