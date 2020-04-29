@@ -215,7 +215,7 @@ $('#faltaUnaEasy').click(function () {
     //Quita una de las palabras de cada fila
     faltaUna();
     //Genera la tabla del juego
-    $('#contenidoJuego').text(generaTabla('verbosJuego', 'easy'));
+    $('#contenido').text(generaTabla('verbosJuego', 'easy'));
 
     $('.carousel').carousel();
     $('.carousel.carousel-slider').carousel({
@@ -234,7 +234,7 @@ $('#faltaUnaMedium').click(function () {
     //Quita una de las palabras de cada fila
     faltaUna();
     //Genera la tabla del juego
-    $('#contenidoJuego').text(generaTabla('verbosJuego', 'medium'));
+    $('#contenido').text(generaTabla('verbosJuego', 'medium'));
 
     $('.carousel').carousel();
     $('.carousel.carousel-slider').carousel({
@@ -251,7 +251,7 @@ $('#faltaUnaHard').click(function () {
     //Quita una de las palabras de cada fila
     faltaUna();
     //Genera la tabla del juego
-    $('#contenidoJuego').text(generaTabla('verbosJuego', 'hard'));
+    $('#contenido').text(generaTabla('verbosJuego', 'hard'));
     console.log("hola");
     $('.carousel').carousel();
     $('.carousel.carousel-slider').carousel({
@@ -279,7 +279,7 @@ $('#faltaTextoEasy').click(function () {
     //Quita una de las palabras de cada fila
     faltaTexto();
     //Genera la tabla del juego
-    $('#contenidoJuego').text(generaTablaJuego2('Juego', 'easy'));
+    $('#contenido').text(generaTablaJuego2('Juego', 'easy'));
 
     $('.carousel').carousel();
 
@@ -296,7 +296,7 @@ $('#faltaTextoMedium').click(function () {
     //Quita una de las palabras de cada fila
     faltaTexto();
     //Genera la tabla del juego
-    $('#contenidoJuego').text(generaTablaJuego2('Juego', 'medium'));
+    $('#contenido').text(generaTablaJuego2('Juego', 'medium'));
 
     $('.carousel').carousel();
 
@@ -313,7 +313,7 @@ $('#faltaTextoHard').click(function () {
     //Quita una de las palabras de cada fila
     faltaTexto();
     //Genera la tabla del juego
-    $('#contenidoJuego').text(generaTablaJuego2('Juego', 'hard'));
+    $('#contenido').text(generaTablaJuego2('Juego', 'hard'));
 
     $('.carousel').carousel();
 
@@ -335,7 +335,7 @@ $('#faltaTextoHard').click(function () {
 
 $('#review').click(function () {
     $('#carrusel').remove();
-    $('#contenidoJuego').text(generaTabla());
+    $('#contenido').text(generaTabla());
     $('.carousel').carousel();
     $('.carousel.carousel-slider').carousel({
         fullWidth: true
@@ -373,9 +373,11 @@ function generaTabla(array, level) {
         esconde('buscaVerbo');
     }
 
+    $('#contenido').html('<div class="row"><a href="juego.html" class="waves-effect waves-light blue btn col m8 offset-m2 s12">Back to Games Menu</a></div><br>');
+
 
     //Genera la estructura de la tabla
-    $('#contenidoJuego').append('<div id="carrusel" class="carousel carousel-slider">\n\
+    $('#contenido').append('<div id="carrusel" class="carousel carousel-slider">\n\
                 \n\
                 ');
     for (var i = 0; i < objetivoVerbos; i++) {
@@ -417,10 +419,10 @@ function generaTablaJuego2(array, level) {
         esconde('buscaProp');
     }
 
-
+    $('#contenido').html('<div class="row"><a href="juego.html" class="waves-effect waves-light blue btn col m8 offset-m2 s12">Back to Games Menu</a></div><br>');
 
     //Genera la estructura de la tabla
-    $('#contenidoJuego').append('<div id="carrusel" class="carousel carousel-slider">\n\
+    $('#contenido').append('<div id="carrusel" class="carousel carousel-slider">\n\
                 \n\
                 ');
     for (var i = 0; i < objetivoPalabras; i++) {
@@ -464,7 +466,7 @@ function generaTablaJuego2(array, level) {
 
 
 //Función para checkear que el verbo es correcto.
-$('#contenidoJuego').on('click', '.checkPalabra', function () {
+$('#contenido').on('click', '.checkPalabra', function () {
 
     for (var i = 0; i < verbos.length; i++) {
 
@@ -497,7 +499,7 @@ $('#contenidoJuego').on('click', '.checkPalabra', function () {
 
 
 //Función para checkear que el verbo es correcto.
-$('#contenidoJuego').on('click', '.checkVerbo', function () {
+$('#contenido').on('click', '.checkVerbo', function () {
 
     for (var i = 0; i < verbos.length; i++) {
 
@@ -539,7 +541,7 @@ $('#contenidoJuego').on('click', '.checkVerbo', function () {
 
 //Función para que al fallar y volver a pulsar en el input se quite el cartel de 
 //'INCORRECT, TRY AGAIN' y se ponga vacío
-$('#contenidoJuego').on('click', '.validate', function () {
+$('#contenido').on('click', '.validate', function () {
     //Checkea que no sea un campo ya acertado
     if (!document.getElementById(this.id).hasAttribute('readonly')) {
         $('#' + this.id).val('');
@@ -605,7 +607,7 @@ $('a[href="#modal1"]').on('click', function (ev) {
             esconde('buscaVerbo');
         } else {
             $('#carrusel').remove();
-            $('#contenidoJuego').text(generaTabla());
+            $('#contenido').text(generaTabla());
             $('.carousel').carousel();
             $('.carousel.carousel-slider').carousel({
                 fullWidth: true
@@ -628,7 +630,7 @@ $('a[href="#modal2"]').on('click', function (ev) {
             esconde('buscaProp');
         } else {
             $('#carrusel').remove();
-            $('#contenidoJuego').text(generaTablaJuego2());
+            $('#contenido').text(generaTablaJuego2());
             $('.carousel').carousel();
             $('.carousel.carousel-slider').carousel({
                 fullWidth: true
