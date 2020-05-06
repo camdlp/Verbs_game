@@ -86,3 +86,8 @@
 #swipeR,#swipeL{
   cursor: pointer;
 }
+
+.brand-logo{
+  width: 80vw !important;
+  margin-left: 10vw;
+}
