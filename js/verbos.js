@@ -383,7 +383,7 @@ function generaTabla(array, level) {
     for (var i = 0; i < objetivoVerbos; i++) {
 
 
-        $('#carrusel').append('<div id="itemCarrusel' + i + '" class="carousel-item blue center-align white-text" style="border-radius: 3px;"><h4>Number ' + (i + 1) + ' / ' + objetivoVerbos + '</h4>');
+        $('#carrusel').append('<div id="itemCarrusel' + i + '" class="carousel-item blue center-align white-text" style="border-radius: 3px;"><h4><i id="swipeL" class="material-icons">chevron_left</i> Number ' + (i + 1) + ' / ' + objetivoVerbos + ' <i id="swipeR" class="material-icons">chevron_right</i></h4>');
         for (var j = 0; j < verbos[i].length; j++) {
             if (array[i][j] === "") {
                 $('#itemCarrusel' + i + '').append($('<div class="input-field col s12 white" style="border: 1px solid #2196f3; border-radius: 3px;">\n\
@@ -426,7 +426,7 @@ function generaTablaJuego2(array, level) {
                 \n\
                 ');
     for (var i = 0; i < objetivoPalabras; i++) {
-        $('#carrusel').append('<div id="itemCarrusel' + i + '" class="carousel-item blue center-align white-text" style="border-radius: 3px;"><h4>Number ' + (i + 1) + ' / ' + objetivoPalabras + '</h4>');
+        $('#carrusel').append('<div id="itemCarrusel' + i + '" class="carousel-item blue center-align white-text" style="border-radius: 3px;"><h4><i id="swipeL" class="material-icons">chevron_left</i> Number ' + (i + 1) + ' / ' + objetivoPalabras + ' <i id="swipeR" class="material-icons">chevron_right</i></h4>');
 
         var palabra = "";
         if (array[i][0] != "") {
@@ -556,6 +556,17 @@ $(document).on('click', '#faltaUna', function () {
         duration: 250
     });
 });
+
+//Métodos del swipe
+$(document).on('click', '#swipeL', function () {
+    $('.carousel').carousel('prev', 1)
+});
+
+
+$(document).on('click', '#swipeR', function () {
+    $('.carousel').carousel('next', 1)
+});
+
 
 //Método para poner un slide específico
 $(document).on('click', '#buscaVerbo', function () {

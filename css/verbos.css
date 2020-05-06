@@ -81,3 +81,8 @@
 }
 /* FIN Botón interactivo de play */
 
+/* Swipe */
+
+#swipeR,#swipeL{
+  cursor: pointer;
+}
