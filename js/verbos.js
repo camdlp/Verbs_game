@@ -6,7 +6,7 @@ var verbos = [
     ["break", "broke", "broken", "romper"],
     ["bring", "brought", "brought", "traer"],
     ["build", "built", "built", "construir"],
-    ["burn", "burnt", "burnt", "quemar(se)"],
+    ["burn", "burnt", "burnt", "quemar"],
     ["buy", "bought", "bought", "comprar"],
     ["catch", "caught", "caught", "coger"],
     ["choose", "chose", "chosen", "elegir"],
@@ -18,33 +18,33 @@ var verbos = [
     ["drink", "drank", "drunk", "beber"],
     ["drive", "drove", "driven", "conducir"],
     ["eat", "ate", "eaten", "comer"],
-    ["fall", "fell", "fallen", "caer(se)"],
+    ["fall", "fell", "fallen", "caer"],
     ["feel", "felt", "felt", "sentirse"],
     ["find", "found", "found", "encontrar"],
     ["fly", "flew", "flown", "volar"],
-    ["forget", "forgot", "forgotten", "olvidar(se)"],
+    ["forget", "forgot", "forgotten", "olvidar"],
     ["forgive", "forgave", "forgiven", "perdonar"],
-    ["get", "got", "got", "conseguir"],
+    ["get", "got", "got/gotten", "conseguir"],
     ["give", "gave", "given", "dar"],
     ["go", "went", "gone", "irse"],
     ["grow", "grew", "grown", "crecer"],
     ["hang out", "hung out", "hung out", "colgar"],
     ["have", "had", "had", "haber, tener"],
     ["hear", "heard", "heard", "escuchar"],
-    ["hide", "hid", "hidden", "esconder(se)"],
+    ["hide", "hid", "hidden", "esconder"],
     ["hit", "hit", "hit", "golpear"],
     ["hurt", "hurt", "hurt", "hacer daño"],
     ["keep", "kept", "kept", "guardar"],
     ["know", "knew", "known", "saber, conocer"],
-    ["lay", "laid", "laid", "poner"],
+    ["lay", "laid", "laid", "echarse"],
     ["learn", "learnt/learned", "learnt/learned", "aprender"],
     ["leave", "left", "left", "dejar"],
     ["let", "let", "let", "permitir"],
-    ["lie", "lay", "lain", "echarse"],
+    ["lie", "lay", "lain", "mentir"],
     ["lose", "lost", "lost", "perder"],
     ["make", "made", "made", "hacer"],
     ["mean", "meant", "meant", "significar"],
-    ["meet", "met", "met", "encontrar(se)"],
+    ["meet", "met", "met", "reunirse"],
     ["pay", "paid", "paid", "pagar"],
     ["put", "put", "put", "poner"],
     ["read", "read", "read", "leer"],
@@ -53,48 +53,48 @@ var verbos = [
     ["run", "ran", "run", "correr"],
     ["say", "said", "said", "decir"],
     ["see", "saw", "seen", "ver"],
-    ["sell", "sold", "sold", "vender(se)"],
+    ["sell", "sold", "sold", "vender"],
     ["send", "sent", "sent", "enviar"],
-    ["set up", "set up", "set up", "poner"],
-    ["shine", "shone", "shone", "brillar"],
+    ["set", "set", "set", "poner"],
+    ["shine", "shone/shined", "shone/shined", "brillar"],
     ["shoot", "shot", "shot", "disparar"],
-    ["show", "showed", "shown", "mostrar"],
+    ["show", "showed", "shown/showed", "mostrar"],
     ["sing", "sang", "sung", "cantar"],
-    ["sit", "sat", "sat", "sentar(se)"],
+    ["sit", "sat", "sat", "sentarse"],
     ["sleep", "slept", "slept", "dormir"],
     ["speak", "spoke", "spoken", "hablar"],
     ["speed", "sped", "sped", "acelerar"],
     ["spell", "spelt", "spelt", "deletrear"],
     ["spend", "spent", "spent", "pasar, gastar"],
-    ["split up", "split up", "split up", "dividir, separar"],
-    ["stand up", "stood up", "stood up", "ponerse en pie"],
+    ["split", "split", "split", "dividir, separar"],
+    ["stand", "stood", "stood", "ponerse en pie"],
     ["steal", "stole", "stolen", "robar"],
     ["swim", "swam", "swum", "nadar"],
-    ["take", "took", "taken", "tomar(se)"],
-    ["teach", "taught", "taught", "enseÒar"],
+    ["take", "took", "taken", "tomar"],
+    ["teach", "taught", "taught", "enseñar"],
     ["tell", "told", "told", "contar, decir"],
     ["think", "thought", "thought", "pensar"],
     ["understand", "understood", "understood", "entender"],
-    ["wake up", "woke up", "woken up", "despertar(se)"],
+    ["wake up", "woke up", "woken up", "despertarse"],
     ["wear", "wore", "worn", "llevar (puesto)"],
     ["win", "won", "won", "ganar"],
     ["write", "wrote", "written", "escribir"],
     ["arise", "arose", "arisen", "surgir"],
-    ["awake", "awoke", "awoken", "despertar(se)"],
+    ["awake", "awoke", "awoken", "estar despierto"],
     ["bear", "bore", "borne", "soportar"],
     ["bid", "bid", "bid", "pujar"],
     ["bind", "bound", "bound", "unir"],
     ["bleed", "bled", "bled", "sangrar"],
     ["breed", "bred", "bred", "criar"],
-    ["bend", "bent", "bent", "doblar(se)"],
+    ["bend", "bent", "bent", "doblar"],
     ["bet", "bet", "bet", "apostar"],
     ["bite", "bit", "bitten", "morder"],
     ["blow", "blew", "blown", "soplar"],
     ["cast", "cast", "cast", "tirar"],
     ["cling", "clung", "clung", "aferrarse"],
-    ["dream", "dreamt", "dreamt", "soÒar"],
+    ["dream", "dreamt", "dreamt", "soñar"],
     ["grind", "ground", "ground", "moler"],
-    ["lean", "leant", "leant", "apoyarse"],
+    ["lean", "leant", "leant", "inclinarse"],
     ["leap", "leapt", "leapt", "brincar"],
     ["overcome", "overcame", "overcome", "vencer"],
     ["saw", "sawed", "sawn", "serrar"],
@@ -102,13 +102,13 @@ var verbos = [
     ["smell", "smelt", "smelt", "oler"],
     ["sow", "sowed", "sown", "sembrar"],
     ["spill", "spilt", "spilt", "derramar"],
-    ["spoil", "spoilt", "spoilt", "estropear(se)"],
+    ["spoil", "spoilt", "spoilt", "estropear"],
     ["strive", "strove", "striven", "esforzarse"],
     ["tread", "trod", "trodden", "pisar"],
     ["undergo", "underwent", "undergone", "sufrir"],
     ["upset", "upset", "upset", "afligir"],
     ["wind", "wound", "wound", "enrollar"],
-    ["withdraw", "withdrew", "withdrawn", "retirar(se)"],
+    ["withdraw", "withdrew", "withdrawn", "retirar"],
     ["wring", "wrung", "wrung", "torcer"],
     ["broadcast", "broadcast", "broadcast", "difundir"],
     ["creep", "crept", "crept", "arrastrar"],
@@ -118,30 +118,30 @@ var verbos = [
     ["fight", "fought", "fought", "pelearse"],
     ["flee", "fled", "fled", "huir"],
     ["forbid", "forbade", "forbidden", "prohibir"],
-    ["freeze", "froze", "frozen", "helar(se)"],
-    ["hold", "held", "held", "agarrar(se)"],
+    ["freeze", "froze", "frozen", "congelar"],
+    ["hold", "held", "held", "sostener"],
     ["kneel", "knelt", "knelt", "arrodillarse"],
     ["lead", "led", "led", "llevar"],
     ["lend", "lent", "lent", "prestar"],
-    ["light", "lit", "lit", "encender(se)"],
+    ["light", "lit", "lit", "encender"],
     ["rise", "rose", "risen", "levantarse"],
     ["seek", "sought", "sought", "buscar"],
     ["shake", "shook", "shaken", "agitar"],
-    ["shrink", "shrank", "shrunk", "encoger(se)"],
-    ["shut", "shut", "shut", "cerrar(se)"],
-    ["sink", "sank", "sunk", "hundir(se)"],
+    ["shrink", "shrank", "shrunk", "encoger"],
+    ["shut", "shut", "shut", "cerrar"],
+    ["sink", "sank", "sunk", "hundir"],
     ["slide", "slid", "slid", "resbalar"],
     ["spit", "spat", "spat", "escupir"],
-    ["spread", "spread", "spread", "extender(se)"],
+    ["spread", "spread", "spread", "extender"],
     ["spring", "sprang", "sprung", "saltar"],
-    ["stick", "stuck", "stuck", "pegar(se)"],
+    ["stick", "stuck", "stuck", "pegar"],
     ["sting", "stung", "stung", "picar"],
     ["stink", "stank", "stunk", "apestar"],
     ["strike", "struck", "struck", "golpear"],
     ["swear", "swore", "sworn", "jurar"],
     ["sweep", "swept", "swept", "barrer"],
-    ["swing", "swung", "swung", "balancear(se)"],
-    ["tear", "tore", "torn", "romper(se)"],
+    ["swing", "swung", "swung", "balancear"],
+    ["tear", "tore", "torn", "rasgar"],
     ["throw", "threw", "thrown", "lanzar"],
     ["weave", "wove", "woven", "tejer"],
     ["weep", "wept", "wept", "llorar"]
@@ -354,6 +354,14 @@ $('.carousel.carousel-slider').carousel({
 
 
 //********* CARRUSEL *********
+$('#contenido').on('keypress', '.carousel-item', function (e) {
+    if (e.keyCode == 13) {
+        // Extraigo el ID del botón y lo pulso
+        id = this.id.substring(12);
+        $(`#${id}`).click();
+
+    }
+});
 
 
 function generaTabla(array, level) {
@@ -432,7 +440,7 @@ function generaTablaJuego2(array, level) {
         if (array[i][0] != "") {
             palabra = array[i][0];
             $('#itemCarrusel' + i + '').append($('<div class="row"><div class="input-field col s12 " style="border: 1px solid #2196f3; border-radius: 3px;">\n\
-            <h4 class="center-align">'+ palabra+ '</h4>\n\
+            <h4 class="center-align">'+ palabra + '</h4>\n\
             </div><div class="input-field col s12" style="border: 1px solid #2196f3; border-radius: 3px;">\n\
                             <h4 class="center-align">' + array[i][1] + '</h4>\n\
                             </div>\n\
@@ -440,7 +448,7 @@ function generaTablaJuego2(array, level) {
                             <h4 class="text"></h4>\n\
                             </div>\n\
                             </div>'));
-        }else{
+        } else {
             $('#itemCarrusel' + i + '').append($('<div class="row"><div class="input-field col s8 m4 offset-m2 offset-s2 white" style="border: 1px solid #2196f3; border-radius: 3px;">\n\
             \n\
             <select id="hidden' + i.toString() + '0" ><option value="" disabled selected>Choose your option</option><option value="IN">IN</option><option value="ON">ON</option><option value="AT">AT</option>\n\
@@ -453,9 +461,9 @@ function generaTablaJuego2(array, level) {
                             </div>\n\
                             </div>'));
         }
-       
 
-       
+
+
 
         if (array === palabrasJuego) {
             $('#itemCarrusel' + i + '').append('<a id="' + i + '" class="btn white blue-text large waves-effect checkPalabra">Check</a>');
@@ -473,7 +481,7 @@ $('#contenido').on('click', '.checkPalabra', function () {
         if (palabrasJuego[this.id][i] === "") {
 
             if ($('#hidden' + this.id + i).val().toString().toLowerCase() === props[this.id][i].toString().toLowerCase()) {
-                
+
                 $('#hidden' + this.id + i).closest(".carousel-item").find(".text").text("CORRECT!").parent().removeClass("red").addClass("green");
 
                 //Aumento los aciertos y compruebo si he ganado
@@ -524,6 +532,8 @@ $('#contenido').on('click', '.checkVerbo', function () {
 
                 setTimeout(function () {
                     $('.carousel').carousel('next');
+                    $(`.validate`).focus();
+                    // $('input').focus();
 
                 }, 1000);
 
