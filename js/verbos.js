@@ -373,7 +373,7 @@ function generaTabla(array, level) {
         if (level === 'easy') {
             objetivoVerbos = 2;
         } else if (level === 'medium') {
-            objetivoVerbos = 70;
+            objetivoVerbos = 90;
         } else objetivoVerbos = 146;
     } else {
         array = verbos;
@@ -508,7 +508,7 @@ $('#contenido').on('click', '.checkPalabra', function () {
 
 //Función para checkear que el verbo es correcto.
 $('#contenido').on('click', '.checkVerbo', function () {
-
+    console.log(`Corrigiendo verbo ${this.id}`);
     for (var i = 0; i < verbos.length; i++) {
 
         if (verbosJuego[this.id][i] === "") {
