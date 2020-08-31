@@ -373,7 +373,7 @@ function generaTabla(array, level) {
         if (level === 'easy') {
             objetivoVerbos = 2;
         } else if (level === 'medium') {
-            objetivoVerbos = 100;
+            objetivoVerbos = 120;
         } else objetivoVerbos = 146;
     } else {
         array = verbos;
